@@ -26,24 +26,62 @@ body {
   grid-template-columns: repeat(21, 1fr);
   grid-template-rows: repeat(16, 1fr);
 }
-.menue {
+
+.menu {
   background: darkgray;
   width: 100vmin;
   flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .sky {
   background: lightblue;
 }
-.land {
-  background: brown;
+.dirt {
+  background: url("./assets/imgs/land.webp") no-repeat center center/cover;
+}
+.grassDirt {
+  background: url("./assets/imgs/grassLand.webp") no-repeat center center/cover;
 }
 .trunk {
-  background: rgb(83, 20, 20);
+  background: url("./assets/imgs/trunk.webp") no-repeat center center/cover;
 }
-.stone {
-  background: gray;
+.rocks {
+  background: url("./assets/imgs/stone.webp") no-repeat center center/cover;
 }
 .tree {
-  background: darkgreen;
+  background: url("./assets/imgs/tree.webp") no-repeat center center/cover;
+}
+
+.tool,
+.kind {
+  cursor: pointer;
+  width: 3rem;
+  margin-right: 1rem;
+}
+.kind {
+  margin-right: 0.5rem;
+  display: flex;
+  height: 3rem;
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+}
+
+.squareDelets {
+  display: flex;
+}
+.rockImg {
+  background: url("./assets/imgs/stone.webp") no-repeat center center/cover;
+}
+.threeImg {
+  background: url("./assets/imgs/tree.webp") no-repeat center center/cover;
+}
+.trunkImg {
+  background: url("./assets/imgs/trunk.webp") no-repeat center center/cover;
+}
+.dirtImg {
+  background: url("./assets/imgs/land.webp") no-repeat center center/cover;
 }
