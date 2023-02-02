@@ -1,0 +1,49 @@
+* {
+  box-sizing: 0;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-width: 100vw;
+  min-height: 100vh;
+  background: darkcyan;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main {
+  width: 100vmin;
+  height: 100vmin;
+  display: flex;
+  flex-direction: column;
+}
+
+.gameBoard {
+  background: rgba(0, 0, 0, 0.517);
+  width: 100vmin;
+  flex: 5;
+  display: grid;
+  grid-template-columns: repeat(21, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+}
+.menue {
+  background: darkgray;
+  width: 100vmin;
+  flex: 1;
+}
+
+.sky {
+  background: lightblue;
+}
+.land {
+  background: brown;
+}
+.trunk {
+  background: rgb(83, 20, 20);
+}
+.stone {
+  background: gray;
+}
+.tree {
+  background: darkgreen;
+}
