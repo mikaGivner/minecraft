@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Orbitron:wght@400;900&family=Press+Start+2P&display=swap");
 * {
   box-sizing: 0;
   margin: 0;
@@ -6,7 +7,7 @@
 body {
   min-width: 100vw;
   min-height: 100vh;
-  background: darkcyan;
+  background: url("./assets/imgs/map.jpg") no-repeat center center/cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,16 +22,44 @@ body {
 .gameBoard {
   background: rgba(0, 0, 0, 0.517);
   width: 100vmin;
-  flex: 5;
+  flex: 6;
   display: grid;
   grid-template-columns: repeat(21, 1fr);
   grid-template-rows: repeat(16, 1fr);
 }
-
+.landingPage {
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: space-around;
+  background: url("./assets/imgs/map.jpg") no-repeat center center/cover;
+  text-align: center;
+}
+h1 {
+  font-family: "Mochiy Pop One", sans-serif;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+p {
+  font-family: "Press Start 2P", cursive;
+  line-height: 2rem;
+  font-size: 21px;
+}
+#startBtn {
+  font-family: "Orbitron", sans-serif;
+  width: 10rem;
+  height: 3rem;
+  cursor: pointer;
+  background: linear-gradient(165deg, #e4e4e4 30%, darkgray 70%);
+}
+#startBtn:hover {
+  opacity: 0.7;
+}
 .menu {
-  background: darkgray;
+  background: rgba(169, 169, 169, 0.453);
   width: 100vmin;
-  flex: 1;
+  flex: 0.5;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -84,4 +113,22 @@ body {
 }
 .dirtImg {
   background: url("./assets/imgs/land.webp") no-repeat center center/cover;
+}
+
+@media (max-width: 770px) {
+  h1 {
+    font-size: 2rem;
+  }
+  p {
+    font-size: 15px;
+  }
+}
+@media (max-width: 500px) {
+  .kind,
+  .tool {
+    width: 2rem;
+  }
+  .kind {
+    height: 2rem;
+  }
 }

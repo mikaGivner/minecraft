@@ -7,11 +7,24 @@
 // 5-grass
 
 //tools:
-//Axe - for cutting trees גרזן
-//Pickaxe - for mining rocks מכוש
-//Shovel - for digging dirt את חפירה
+//Axe - for cutting trees
+//Pickaxe - for mining rocks
+//Shovel - for digging dirt
 
 let gameBoard = document.querySelector(".gameBoard");
+let axe = document.querySelector(".tool.axe");
+let pickaxe = document.querySelector(".tool.pickaxe");
+let shovel = document.querySelector(".tool.shovel");
+let rockImg = document.querySelector(".rockImg");
+let dirtImg = document.querySelector(".dirtImg");
+let trunkImg = document.querySelector(".trunkImg");
+let threeImg = document.querySelector(".threeImg");
+let main = document.querySelector(".main");
+let landingPage = document.querySelector(".landingPage");
+let startBtn = document.querySelector("#startBtn");
+startBtn.innerText = "Click For Start";
+main.style.display = "none";
+landingPage.style.display = "flex";
 let myPicture = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -31,18 +44,39 @@ let myPicture = [
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 ];
-let whichTool = 0;
-let axe = document.querySelector(".tool.axe");
-let pickaxe = document.querySelector(".tool.pickaxe");
-let shovel = document.querySelector(".tool.shovel");
+let changeTile = 0;
 let rockAmount = 0;
-let rockImg = document.querySelector(".rockImg");
 let dirtAmount = 0;
-let dirtImg = document.querySelector(".dirtImg");
 let trunkAmount = 0;
-let trunkImg = document.querySelector(".trunkImg");
 let threeAmount = 0;
-let threeImg = document.querySelector(".threeImg");
+let whichTool = 0;
+// localStorage.setItem("whichTool", 0);
+// localStorage.getItem("whichTool");
+
+startBtn.addEventListener("click", function () {
+  main.style.display = "flex";
+  landingPage.style.display = "none";
+});
+
+let tileImg = [
+  [rockImg, `${rockAmount}`],
+  [dirtImg, `${dirtAmount}`],
+  [trunkImg, `${trunkAmount}`],
+  [threeImg, `${threeAmount}`],
+];
+
+tileImg.forEach((whichTile, index) => {
+  whichTile[0].addEventListener("click", function () {
+    whichTool = 0;
+    // if (Number(whichTile[1]) > 0) changeTile = index++;
+    if (index === 0 && rockAmount > 0) changeTile = 1;
+    else if (index === 1 && dirtAmount > 0) changeTile = 2;
+    else if (index === 2 && trunkAmount > 0) changeTile = 3;
+    else if (index === 3 && threeAmount > 0) changeTile = 4;
+  });
+});
+
+let whatDraw = [[0], [1], [2], [3], [4], [5]];
 
 for (let i = 1; i < 17; i++) {
   for (let j = 1; j < 22; j++) {
@@ -63,6 +97,28 @@ for (let i = 1; i < 17; i++) {
 }
 
 gameBoard.addEventListener("click", function (e) {
+  if (whichTool === 0) {
+    if (e.target.className === "sky") {
+      if (changeTile === 1 && rockAmount > 0) {
+        e.target.setAttribute("class", "rocks");
+        rockAmount--;
+        rockImg.innerText = `${rockAmount.toString()}`;
+      } else if (changeTile === 2 && dirtAmount > 0) {
+        e.target.setAttribute("class", "dirt");
+        dirtAmount--;
+        dirtImg.innerText = `${dirtAmount.toString()}`;
+      } else if (changeTile === 3 && trunkAmount > 0) {
+        e.target.setAttribute("class", "trunk");
+        trunkAmount--;
+        trunkImg.innerText = `${trunkAmount.toString()}`;
+      } else if (changeTile === 4 && threeAmount > 0) {
+        e.target.setAttribute("class", "tree");
+        threeAmount--;
+        threeImg.innerText = `${threeAmount.toString()}`;
+      }
+    }
+  }
+
   if (
     (whichTool === 1 && e.target.className === "trunk") ||
     (whichTool === 1 && e.target.className === "tree")
@@ -95,15 +151,13 @@ gameBoard.addEventListener("click", function (e) {
   }
 });
 
-axe.addEventListener("click", function () {
-  whichTool = 1;
-  console.log(whichTool);
-});
-pickaxe.addEventListener("click", function () {
-  whichTool = 2;
-  console.log(whichTool);
-});
-shovel.addEventListener("click", function () {
-  whichTool = 3;
-  console.log(whichTool);
+let kindsOfTools = [
+  [axe, 1],
+  [pickaxe, 2],
+  [shovel, 3],
+];
+kindsOfTools.forEach((thisTool) => {
+  thisTool[0].addEventListener("click", function () {
+    whichTool = thisTool[1];
+  });
 });
