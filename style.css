@@ -46,6 +46,9 @@ p {
   line-height: 2rem;
   font-size: 21px;
 }
+.presentTool {
+  font-size: 15px;
+}
 #startBtn {
   font-family: "Orbitron", sans-serif;
   width: 10rem;
@@ -68,6 +71,13 @@ p {
 .sky {
   background: lightblue;
 }
+.shine {
+  background: yellow;
+}
+.cloud {
+  background: #fff;
+}
+
 .dirt {
   background: url("./assets/imgs/land.webp") no-repeat center center/cover;
 }
@@ -113,6 +123,9 @@ p {
 }
 .dirtImg {
   background: url("./assets/imgs/land.webp") no-repeat center center/cover;
+}
+.grassImg {
+  background: url("./assets/imgs/grassLand.webp") no-repeat center center/cover;
 }
 
 @media (max-width: 770px) {
