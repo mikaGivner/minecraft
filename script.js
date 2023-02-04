@@ -46,15 +46,18 @@ let myPicture = [
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 ];
+
 let changeTile = 0;
 let rockAmount = 0;
 let dirtAmount = 0;
+function populateStorage() {
+  localStorage.setItem("rockAmount", rockAmount);
+}
+let something = localStorage.getItem("rockAmount");
 let grassAmount = 0;
 let trunkAmount = 0;
 let threeAmount = 0;
 let whichTool = 0;
-// localStorage.setItem("whichTool", 0);
-// localStorage.getItem("whichTool");
 let arr = [
   ["sky"],
   ["dirt"],
